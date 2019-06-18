@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="TodayExtension" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="111" translatesAutoresizingMaskIntoConstraints="NO" id="Wjp-Ov-ciE">
+                                <rect key="frame" x="5" y="104.5" width="310" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выполнено" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7z-r0-l3F">
+                                        <rect key="frame" x="0.0" y="0.0" width="71.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-05-19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaG-XK-WNh">
+                                        <rect key="frame" x="253.5" y="0.0" width="56.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сходить за молоком" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euo-QB-SOn">
+                                <rect key="frame" x="5" y="69" width="310" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="Euo-QB-SOn" secondAttribute="trailing" constant="5" id="gUL-Ez-EBE"/>
+                            <constraint firstItem="Wjp-Ov-ciE" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="5" id="moY-09-ZGB"/>
+                            <constraint firstItem="Euo-QB-SOn" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="25" id="nBh-zd-Qaf"/>
+                            <constraint firstItem="Euo-QB-SOn" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="5" id="s3P-fW-KYx"/>
+                            <constraint firstItem="Wjp-Ov-ciE" firstAttribute="top" secondItem="Euo-QB-SOn" secondAttribute="bottom" constant="15" id="wWq-xZ-DtF"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="Wjp-Ov-ciE" secondAttribute="trailing" constant="5" id="xBm-lK-qcr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="200"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="EaG-XK-WNh" id="CKL-kB-or5"/>
+                        <outlet property="statusLabel" destination="O7z-r0-l3F" id="NYD-Ta-sw0"/>
+                        <outlet property="textLabel" destination="Euo-QB-SOn" id="xUh-xz-1hf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="29.464285714285712"/>
+        </scene>
+    </scenes>
+</document>
