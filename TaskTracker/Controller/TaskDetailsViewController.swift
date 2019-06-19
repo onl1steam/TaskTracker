@@ -31,6 +31,7 @@ class TaskDetailsViewController: UIViewController {
         descriptionView.layer.cornerRadius = 16
     }
     
+    // Сохранение изменений
     @IBAction func saveChanges(_ sender: Any) {
         
         guard let text = nameView.text,
@@ -52,6 +53,7 @@ class TaskDetailsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    // Вывод предупреждения
     func showAlert() {
         let alert = UIAlertController(title: "Заполните все поля", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in

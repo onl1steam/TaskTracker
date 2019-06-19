@@ -24,7 +24,8 @@ class CoreDataManager {
     
     let appDelegate: AppDelegate
     let context: NSManagedObjectContext
-    
+
+    // Загрузка задачи из БД по NSManagedObjectID
     func fetchTask(with id: NSManagedObjectID) -> Task? {
         
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
@@ -42,6 +43,7 @@ class CoreDataManager {
         return task
     }
     
+    // Загрузка из БД всех задач
     func fetchData() -> [Task] {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         var tasks = [Task]()
@@ -58,6 +60,7 @@ class CoreDataManager {
         return tasks
     }
     
+    // Занесение новой задачи в БД
     func saveTask(name: String, date: Date, status: String, taskDescription: String) {
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
         
@@ -75,6 +78,7 @@ class CoreDataManager {
         }
     }
     
+    // Удаление задачи по NSManagedObjectID
     func deleteTask(by id: NSManagedObjectID) {
         let object = context.object(with: id)
         context.delete(object)
@@ -87,6 +91,7 @@ class CoreDataManager {
         }
     }
     
+    // Смена описания и названия задачи по NSManagedObjectID
     func changeTaskInfo(with id: NSManagedObjectID, name: String, description: String) {
         
         let object = context.object(with: id)
@@ -100,6 +105,7 @@ class CoreDataManager {
         }
     }
     
+    // Смена статуса задачи по NSManagedObjectID
     func changeTaskStatus(with id: NSManagedObjectID, status: String) {
         
         let object = context.object(with: id)

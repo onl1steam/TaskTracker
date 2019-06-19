@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool
     {
+        // Переход к экрану деталей задачи
         if url.scheme == "TaskDetails"
         {
             if let viewController = self.window?.rootViewController as? TaskListViewController {
@@ -24,6 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 viewController.performSegue(withIdentifier: "ShowTaskDetails", sender: nil)
             }
         }
+        // Переход к экрану создания задачи
+        if url.scheme == "AddNewTask"
+        {
+            if let viewController = self.window?.rootViewController as? TaskListViewController {
+                viewController.performSegue(withIdentifier: "AddNewTask", sender: nil)
+            }
+        }
+        
         return true
     }
 

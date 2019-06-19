@@ -15,7 +15,7 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var taskDateLabel: UILabel!
     @IBOutlet weak var taskStatusLabel: UILabel!
     
-    
+    // Настройка внешнего вида ячейки
     func configure(name: String, date: String, status: String) {
         taskNameLabel.text = name
         taskDateLabel.text = date

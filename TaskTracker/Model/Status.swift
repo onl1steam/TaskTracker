@@ -13,5 +13,4 @@ enum Status: String {
     case new = "Новая"
     case inProgress = "В процессе"
     case finished = "Завершена"
-    
 }

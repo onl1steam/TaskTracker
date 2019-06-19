@@ -23,7 +23,7 @@ class PopoverViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         tableView.delegate = self
         
-        // Apply radius to Popupview
+        // Настройки внешнего вида:
         Popupview.layer.cornerRadius = 10
         Popupview.layer.masksToBounds = true
         Popupview.layer.borderWidth = 0.5
@@ -36,8 +36,6 @@ class PopoverViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    
-    // Returns count of items in tableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.statuses.count;
     }
@@ -46,13 +44,10 @@ class PopoverViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    // Select item from tableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.childViewControllerFilterResponse(status: statuses[indexPath.row])
     }
     
-    //Assign values for tableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath)

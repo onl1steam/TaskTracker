@@ -9,6 +9,7 @@
 import UIKit
 
 class NewTaskViewController: UIViewController {
+    
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var taskNameTextView: UITextField!
     
@@ -23,6 +24,7 @@ class NewTaskViewController: UIViewController {
         descriptionTextView.layer.cornerRadius = 16
     }
     
+    // Добавление новой записи в БД
     @IBAction func addTask(_ sender: Any) {
         // Проверяем заполнение полей
         
@@ -44,6 +46,7 @@ class NewTaskViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    // Вывод предупреждения
     func showAlert() {
         let alert = UIAlertController(title: "Заполните все поля", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in

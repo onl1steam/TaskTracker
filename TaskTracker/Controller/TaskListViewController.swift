@@ -54,6 +54,7 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         performSegue(withIdentifier: "ShowTaskDetails", sender: self)
     }
     
+    // Свайп вправо: позволяет изменить статус задачи
     func tableView(_ tableView: UITableView,
                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
@@ -82,7 +83,7 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
 
-    
+    // Свайп влево: позволяет удалить задачу
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
@@ -97,7 +98,7 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    // Segue
+    // Переходы
     
     @IBAction func addNewTask(_ sender: Any) {
         performSegue(withIdentifier: "AddNewTask", sender: self)
@@ -122,7 +123,7 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    // Protocols
+    // Протокол
     
     func childViewControllerResponse() {
         fixedTaskList = CoreDataManager.shared.fetchData()
