@@ -13,4 +13,18 @@ enum Status: String {
     case new = "Новая"
     case inProgress = "В процессе"
     case finished = "Завершена"
+    
+    var presentationString: String {
+        switch self {
+        case .all:
+            return "Все"
+        case .new:
+            return "Новые"
+        case .inProgress:
+            return "В процессе"
+        case .finished:
+            return "Завершенные"
+        }
+    }
+    
 }

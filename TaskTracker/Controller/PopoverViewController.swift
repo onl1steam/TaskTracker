@@ -41,18 +41,19 @@ class PopoverViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func onTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.childViewControllerFilterResponse(status: statuses[indexPath.row])
+        self.dismiss(animated: false, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath)
         
-        cell.textLabel?.text = statuses[indexPath.row].rawValue
+        cell.textLabel?.text = statuses[indexPath.row].presentationString
         
         return cell
     }

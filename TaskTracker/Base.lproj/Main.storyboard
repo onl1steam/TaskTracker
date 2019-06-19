@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -47,7 +46,7 @@
                                 <rect key="frame" x="20" y="35" width="374" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6v-eX-sPs">
-                                        <rect key="frame" x="0.0" y="0.0" width="16" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="34"/>
                                         <state key="normal" image="backButton"/>
                                         <connections>
                                             <action selector="backPressed:" destination="T7k-hL-3P7" eventType="touchUpInside" id="46h-Qc-nUM"/>
@@ -55,7 +54,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Редактировать" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hV0-qm-e26">
-                                        <rect key="frame" x="121" y="0.0" width="120.33333333333331" height="34"/>
+                                        <rect key="frame" x="123" y="0.0" width="120.33333333333331" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -134,14 +133,14 @@
                                 <rect key="frame" x="20" y="35" width="374" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJV-Kz-4zM">
-                                        <rect key="frame" x="0.0" y="0.0" width="16" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="34"/>
                                         <state key="normal" image="backButton"/>
                                         <connections>
                                             <action selector="backPressed:" destination="tUw-Ya-YIC" eventType="touchUpInside" id="Frs-Qt-gMt"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Создать" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXz-BA-u2u">
-                                        <rect key="frame" x="149.66666666666666" y="0.0" width="66.333333333333343" height="34"/>
+                                        <rect key="frame" x="152" y="0.0" width="66.333333333333314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -350,7 +349,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                         <state key="normal" image="filterIcon"/>
                                         <connections>
-                                            <segue destination="k7D-lU-msw" kind="presentation" identifier="ShowPopover" modalPresentationStyle="overCurrentContext" id="nuz-qw-LgA"/>
+                                            <segue destination="k7D-lU-msw" kind="presentation" identifier="ShowPopover" animates="NO" modalPresentationStyle="overCurrentContext" id="nuz-qw-LgA"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Задачи" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47g-dt-Cmd">
