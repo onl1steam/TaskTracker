@@ -34,11 +34,14 @@ class NewTaskViewController: UIViewController {
             return
         }
     
-        // TODO: Добавить сохранение и добавление в массив
         CoreDataManager.shared.saveTask(name: text, date: Date(), status: "Новая", taskDescription: description)
         delegate?.childViewControllerResponse()
         
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func backPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func showAlert() {

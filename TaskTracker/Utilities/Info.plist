@@ -25,7 +25,7 @@
 			<string>com.onl1steam.TaskTracker</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>taskDetails</string>
+				<string>TaskDetails</string>
 			</array>
 		</dict>
 	</array>

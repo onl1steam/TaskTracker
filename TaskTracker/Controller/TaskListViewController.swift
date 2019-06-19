@@ -13,12 +13,16 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     var filteredTasks = [Task]()
+    var fixedTaskList = [Task]()
     var task: Task?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        filteredTasks = CoreDataManager.shared.fetchData()
+        fixedTaskList = CoreDataManager.shared.fetchData()
+        filteredTasks = fixedTaskList
+        
+        self.tableView.tableFooterView = UIView()
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -50,13 +54,47 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
         performSegue(withIdentifier: "ShowTaskDetails", sender: self)
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Удалить") { (action, indexPath) in
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let finishedStatus = UIContextualAction(style: .normal, title:  "Завершена", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            let id = self.filteredTasks[indexPath.row].objectID
+            CoreDataManager.shared.changeTaskStatus(with: id, status: "Завершена")
+            self.filteredTasks[indexPath.row].status = "Завершена"
+            self.fixedTaskList[indexPath.row].status = "Завершена"
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            success(true)
+        })
+        
+        let inProgressStatus = UIContextualAction(style: .normal, title:  "В процессе", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            let id = self.filteredTasks[indexPath.row].objectID
+            CoreDataManager.shared.changeTaskStatus(with: id, status: "В процессе")
+            self.filteredTasks[indexPath.row].status = "В процессе"
+            self.fixedTaskList[indexPath.row].status = "В процессе"
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            success(true)
+        })
+        
+        finishedStatus.backgroundColor = .gray
+        inProgressStatus.backgroundColor = .green
+        
+        return UISwipeActionsConfiguration(actions: [finishedStatus, inProgressStatus])
+        
+    }
+
+    
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let deleteAction = UIContextualAction(style: .destructive, title:  "Удалить", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             let item = self.filteredTasks.remove(at: indexPath.row)
+            self.fixedTaskList.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             CoreDataManager.shared.deleteTask(by: item.objectID)
-        }
-        return [delete]
+            success(true)
+        })
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
     // Segue
@@ -77,12 +115,30 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
                 destinationVC.delegate = self
             }
         }
+        if segue.identifier == "ShowPopover" {
+            if let destinationVC = segue.destination as? PopoverViewController {
+                destinationVC.delegate = self
+            }
+        }
     }
     
     // Protocols
     
     func childViewControllerResponse() {
-        filteredTasks = CoreDataManager.shared.fetchData()
+        fixedTaskList = CoreDataManager.shared.fetchData()
+        filteredTasks = fixedTaskList
         tableView.reloadData()
+    }
+    
+    func childViewControllerFilterResponse(status: Status) {
+        if status == .all {
+            filteredTasks = fixedTaskList
+            self.tableView.reloadData()
+        } else {
+            filteredTasks = fixedTaskList.filter({ (task) -> Bool in
+                task.status == status.rawValue
+            })
+            self.tableView.reloadData()
+        }
     }
 }

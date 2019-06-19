@@ -25,6 +25,23 @@ class CoreDataManager {
     let appDelegate: AppDelegate
     let context: NSManagedObjectContext
     
+    func fetchTask(with id: NSManagedObjectID) -> Task? {
+        
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        var task: Task? = nil
+        do {
+            let data = try context.fetch(fetchRequest)
+            data.forEach { (taskData) in
+                if taskData.objectID == id {
+                    task = taskData
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return task
+    }
+    
     func fetchData() -> [Task] {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         var tasks = [Task]()
@@ -70,16 +87,26 @@ class CoreDataManager {
         }
     }
     
-    func changeTask(with id: NSManagedObjectID, name: String, description: String, status: String) {
+    func changeTaskInfo(with id: NSManagedObjectID, name: String, description: String) {
         
         let object = context.object(with: id)
         object.setValue(name, forKey: "name")
         object.setValue(description, forKey: "taskDescription")
+        
+        do {
+            try context.save()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    func changeTaskStatus(with id: NSManagedObjectID, status: String) {
+        
+        let object = context.object(with: id)
         object.setValue(status, forKey: "status")
         
         do {
             try context.save()
-            print("saved!")
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }

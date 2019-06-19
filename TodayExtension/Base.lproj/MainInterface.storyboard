@@ -41,11 +41,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0G-0g-xh8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
+                                <connections>
+                                    <action selector="showTaskDetails:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="E1q-Tc-ZIs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="f0G-0g-xh8" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="GVH-el-hfW"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="f0G-0g-xh8" secondAttribute="trailing" id="QAB-ip-dDd"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="Euo-QB-SOn" secondAttribute="trailing" constant="5" id="gUL-Ez-EBE"/>
+                            <constraint firstItem="f0G-0g-xh8" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="mWr-lW-bv7"/>
                             <constraint firstItem="Wjp-Ov-ciE" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="5" id="moY-09-ZGB"/>
                             <constraint firstItem="Euo-QB-SOn" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="25" id="nBh-zd-Qaf"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="f0G-0g-xh8" secondAttribute="bottom" id="rBZ-c0-urL"/>
                             <constraint firstItem="Euo-QB-SOn" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="5" id="s3P-fW-KYx"/>
                             <constraint firstItem="Wjp-Ov-ciE" firstAttribute="top" secondItem="Euo-QB-SOn" secondAttribute="bottom" constant="15" id="wWq-xZ-DtF"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="Wjp-Ov-ciE" secondAttribute="trailing" constant="5" id="xBm-lK-qcr"/>

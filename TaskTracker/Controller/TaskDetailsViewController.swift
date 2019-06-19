@@ -42,10 +42,14 @@ class TaskDetailsViewController: UIViewController {
         }
         
         guard let id = task?.objectID else {return}
-        CoreDataManager.shared.changeTask(with: id, name: nameView.text ?? "", description: descriptionView.text, status: "Завершена")
+        CoreDataManager.shared.changeTaskInfo(with: id, name: nameView.text ?? "", description: descriptionView.text)
         delegate?.childViewControllerResponse()
         
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func backPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func showAlert() {

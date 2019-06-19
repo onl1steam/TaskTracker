@@ -8,6 +8,7 @@
 
 import UIKit
 import NotificationCenter
+import CoreData
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
@@ -17,8 +18,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
         
+    }
+    
+    @IBAction func showTaskDetails(_ sender: Any) {
+        self.extensionContext?.open(URL(string: "TaskDetails://")!, completionHandler: nil)
+    }
+    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
@@ -30,3 +36,4 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
 }
+
